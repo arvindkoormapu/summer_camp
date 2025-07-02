@@ -15,8 +15,10 @@ function useQuizData(t) {
       id: 1,
       text: t('quiz.q0.text'),
       options: [
-        { text: t('quiz.q0.a1'), character: 'boy' },
-        { text: t('quiz.q0.a2'), character: 'girl' }
+        { text: t('quiz.q0.a1'), animal: 'elephant' },
+        { text: t('quiz.q0.a2'), animal: 'fox' },
+        { text: t('quiz.q0.a3'), animal: 'monkey' },
+        { text: t('quiz.q0.a4'), animal: 'duck' }
       ]
     },
     {
@@ -24,10 +26,10 @@ function useQuizData(t) {
       id: 2,
       text: t('quiz.q1.text'),
       options: [
-        { text: t('quiz.q1.a1'), animal: 'elephant' },
-        { text: t('quiz.q1.a2'), animal: 'jackal' },
-        { text: t('quiz.q1.a3'), animal: 'monkey' },
-        { text: t('quiz.q1.a4'), animal: 'duck' }
+        { text: t('quiz.q1.a1'), animal: 'lion' },
+        { text: t('quiz.q1.a2'), animal: 'hare' },
+        { text: t('quiz.q1.a3'), animal: 'ox' },
+        { text: t('quiz.q1.a4'), animal: 'turtle' }
       ]
     },
     {
@@ -35,10 +37,10 @@ function useQuizData(t) {
       id: 3,
       text: t('quiz.q2.text'),
       options: [
-        { text: t('quiz.q2.a1'), animal: 'lion' },
-        { text: t('quiz.q2.a2'), animal: 'hare' },
-        { text: t('quiz.q2.a3'), animal: 'ox' },
-        { text: t('quiz.q2.a4'), animal: 'turtle' }
+        { text: t('quiz.q2.a1'), animals: ['elephant', 'turtle'] },
+        { text: t('quiz.q2.a2'), animals: ['fox', 'hare'] },
+        { text: t('quiz.q2.a3'), animals: ['duck', 'monkey'] },
+        { text: t('quiz.q2.a4'), animals: ['ox', 'lion'] }
       ]
     },
     {
@@ -46,39 +48,21 @@ function useQuizData(t) {
       id: 4,
       text: t('quiz.q3.text'),
       options: [
-        { text: t('quiz.q3.a1'), animals: ['elephant', 'turtle'] },
-        { text: t('quiz.q3.a2'), animals: ['jackal', 'hare'] },
-        { text: t('quiz.q3.a3'), animals: ['duck', 'monkey'] },
-        { text: t('quiz.q3.a4'), animals: ['ox', 'lion'] }
+        { text: t('quiz.q3.a1'), animal: 'dove' },
+        { text: t('quiz.q3.a2'), animal: 'monkey' },
+        { text: t('quiz.q3.a3'), animal: 'ox' },
+        { text: t('quiz.q3.a4'), animal: 'fox' }
       ]
-    },
-    {
-      type: 'loader',
-      id: 'loader1',
-      text: t('quiz.loader1'),
-      duration: 6000
     },
     {
       type: 'question',
       id: 5,
       text: t('quiz.q4.text'),
       options: [
-        { text: t('quiz.q4.a1'), theme: 'The story involves discovery, nature, or finding a secret path' },
-        { text: t('quiz.q4.a2'), theme: 'The story involves a problem-solving quest, riddles, or puzzles' },
-        { text: t('quiz.q4.a3'), theme: 'The story involves teamwork, empathy, or facing fear together' },
-        { text: t('quiz.q4.a4'), theme: 'The story involves perseverance, self-belief, or overcoming a personal challenge' },
-        { text: t('quiz.q4.a5'), theme: 'The story is whimsical, imaginative, and surreal' }
-      ]
-    },
-    {
-      type: 'question',
-      id: 6,
-      text: t('quiz.q5.text'),
-      options: [
-        { text: t('quiz.q5.a1'), adaptation: 'indian' },
-        { text: t('quiz.q5.a2'), adaptation: 'arabic' },
-        { text: t('quiz.q5.a3'), adaptation: 'persian' },
-        { text: t('quiz.q5.a4'), adaptation: 'western' }
+        { text: t('quiz.q4.a1'), animal: 'elephant' },
+        { text: t('quiz.q4.a2'), animal: 'fox' },
+        { text: t('quiz.q4.a3'), animal: 'turtle' },
+        { text: t('quiz.q4.a4'), animal: 'duck' }
       ]
     }
   ], [t]);
@@ -102,14 +86,15 @@ function getFinalAnimal(answers) {
   const randomWinner = topAnimals[Math.floor(Math.random() * topAnimals.length)][0];
 
   const spiritAnimalMap = {
-    lion: { traits: ['brave', 'loyal', 'protector'], image: '/animals/lion.png' },
-    jackal: { traits: ['clever', 'strategic', 'fast_thinker'], image: '/animals/jackal2.png' },
-    elephant: { traits: ['wise', 'calm', 'strong_hearted'], image: '/animals/elephant.png' },
-    duck: { traits: ['kind', 'peace_maker', 'gentle'], image: '/animals/duck2.png' },
-    turtle: { traits: ['patient', 'reflective', 'peaceful'], image: '/animals/turtle.png' },
-    hare: { traits: ['fast', 'fun', 'impulsive'], image: '/animals/rabbit.png' },
-    ox: { traits: ['steady', 'hardworking', 'dependable'], image: '/animals/ox.png' },
-    monkey: { traits: ['playful', 'creative', 'witty'], image: '/animals/monkey.png' }
+    lion: { image: '/animals/lion.png' },
+    elephant: { image: '/animals/elephant.png' },
+    duck: { image: '/animals/duck2.png' },
+    turtle: { image: '/animals/turtle.png' },
+    hare: { image: '/animals/rabbit.png' },
+    ox: { image: '/animals/ox.png' },
+    monkey: { image: '/animals/monkey.png' },
+    dove: { image: '/animals/dove.png' },
+    fox: { image: '/animals/fox.png' },
   };
 
   return {
@@ -118,70 +103,46 @@ function getFinalAnimal(answers) {
   };
 }
 
-function generateStoryPrompt({ t, name, character, animal, theme, adaptation, language }) {
+function generateStoryPrompt({ name, animal, language }) {
+  if (!animal || !animal.name) {
+    console.error('Invalid animal data:', animal);
+    return null;
+  }
+
+  const animalName = capitalize(animal.name);
+
   if (language === 'en') {
     return `
-    Write a moral story for a child named ${name}.
-    The main character is a ${character.toLowerCase()} named ${name}.
-    Their spirit animal is a ${capitalize(animal.name)} (${animal.traits.join(', ')}).
-    The story should follow a ${adaptation} cultural style and center around the chosen adventure: ${theme}.
+    Write a short description reflecting the character's personality traits and moral alignment inspired by Kalila wa Dimna.
 
-    In the story, make sure to clearly refer to the concept of a "spirit animal" using the exact phrase "spirit animal".
+    The character is named ${name}, and their spirit animal is the ${animalName}.
 
-    Do not name the animal as ${name}, and do not refer to the animal using the child's name.
-    Do not compare the child to the animal.
-    The animal should appear as a guide, friend, or source of wisdom — not a reflection of the child.
+    It should be symbolic, moral-focused, child-friendly, and between 80 to 100 words written in English.
 
-    Avoid mystical or supernatural language — do not make the story spiritual or magical.
-    Keep the tone symbolic, moral, and child-friendly.
-
-    The story, including the title, body, and moral, must be written in English.
-    The title must include the child's name (${name}).
-
-    The story body must be **between 150 and 160 words only** — not more, not less.
-
-    Please return ONLY valid JSON using this format:
+    Provide ONLY valid JSON as follows:
     {
-      "title": "Title of the story in English (must include ${name})",
-      "story": "A story between 150 and 160 words written in English.",
-      "moral": "A 1-line moral in English"
+      "description": "Your short description here"
     }
 
-    Do not include any explanations, markdown, or extra formatting.
-    Return only a valid JSON object as plain text.
-  `.trim();
+    Do not include explanations or formatting beyond this JSON object.
+    `.trim();
   }
+
   if (language === 'ar') {
-    const translatedTraits = animal.traits.map((trait) => t(`traits.${trait}`)).join(', ');
     return `
-    Write a moral story for a child named ${name}.
-    The main character is a ${character.toLowerCase()} named ${name}.
-    Their spirit animal is a ${t(`animals.${animal.name}`)} (${translatedTraits}).
-    The story should follow a ${t("Adaptation")} cultural style and center around the chosen adventure: ${theme}.
+    Write a short description reflecting the character's personality traits and moral alignment inspired by Kalila wa Dimna.
 
-    In the story, make sure to clearly refer to the concept of a "spirit animal" using the Arabic term "الحيوان الرمزي".
-    IMPORTANT: The story must contain between 180 and 200 words — not less, not more. Do NOT write a 150-word story.
+    The character is named ${name}, and their spirit animal is the ${animalName}.
 
-    Do not name the animal as ${name}, and do not refer to the animal using the child's name.
-    Do not compare the child to the animal.
-    The animal should appear as a guide, friend, or source of wisdom — not a reflection of the child.
+    It should be symbolic, moral-focused, child-friendly, and between 80 to 100 words written in العربية الفصحى.
 
-    Avoid mystical or supernatural language — do not make the story spiritual or magical.
-    Keep the tone symbolic, moral, and child-friendly.
-
-    The story, including title, body, and moral, must be in العربية الفصحى.
-    The title must include the child's name (${name}).
-
-    Please return ONLY valid JSON using this format:
+    Provide ONLY valid JSON as follows:
     {
-      "title": "Title of the story in العربية الفصحى (must include ${name})",
-      "story": "A story between 180 and 200 words written in العربية الفصحى.",
-      "moral": "A 1-line moral in العربية الفصحى"
+      "description": "Your short description here"
     }
 
-    Do not include any explanations, markdown, or extra formatting.
-    Return only a valid JSON object as plain text.
-  `.trim();
+    Do not include explanations or formatting beyond this JSON object.
+    `.trim();
   }
 }
 
@@ -190,8 +151,12 @@ function capitalize(str) {
 }
 
 async function generateStory({ t, name, character, animal, theme, adaptation, language }) {
+  const prompt = generateStoryPrompt({ t, name, character, animal, language });
 
-  const prompt = generateStoryPrompt({ t, name, character, animal, theme, adaptation, language });
+  if (!prompt) {
+    console.error('Failed to generate story prompt');
+    return null;
+  }
 
   try {
     const response = await axios.post(
@@ -253,24 +218,32 @@ export default function QuizFlow({ userName }) {
 
     if (!currentQuestion && !finalAnimal) {
       const result = getFinalAnimal(answers);
-      const theme = answers.find(a => a.answer.theme)?.answer.theme;
-      const character = answers.find(a => a.answer.character)?.answer.character;
-      const adaptation = answers.find(a => a.answer.adaptation)?.answer.adaptation;
+
+      if (!result) {
+        console.error('Missing required data:', { result });
+        return;
+      }
 
       setIsGenerating(true);
 
-      const language = i18n.language
+      const language = i18n.language;
 
-      generateStory({ t, name: userName, character, animal: result, theme, adaptation, language }).then((storyResponse) => {
-        setFinalAnimal(result);
-        setStoryData(storyResponse);
-        setStoryReady(true);
+      generateStory({ t, name: userName, character: 'child', animal: result, language }).then((storyResponse) => {
+        if (storyResponse) {
+          setFinalAnimal(result);
+          setStoryData(storyResponse);
+          setStoryReady(true);
+        } else {
+          console.error('Failed to generate story');
+        }
         setIsGenerating(false);
       });
     }
   }, [currentQuestion]);
 
-  if (isGenerating || (!storyReady && finalAnimal)) {
+  // if (isGenerating || (!storyReady && finalAnimal)) {
+  if (isGenerating) {
+
     return (
       <div
         className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-center px-6 relative"
@@ -279,7 +252,7 @@ export default function QuizFlow({ userName }) {
         <img src={greenLeft} alt="decorative plant left" className="absolute bottom-[0px] left-[20px] w-[200px] z-10" />
         <img src={logoRight} alt="logo top right" className="absolute top-[0px] right-[20px] w-[300px] z-10 cursor-pointer" onClick={() => window.location.reload()} />
         <div className="text-[50px] font-avenir text-secondary animate-zoom-grow max-w-xl mb-8">
-          {t('quiz.loader2')}
+          {t('quiz.loader1')}
         </div>
         <div className="mb-6">
           {/* <div className="border-4 border-primary border-t-transparent rounded-full w-16 h-16 animate-spin-slow mx-auto"></div> */}
@@ -293,8 +266,12 @@ export default function QuizFlow({ userName }) {
   }
 
   if (finalAnimal && storyReady && storyData) {
-    const adaptation = answers.find(a => a.answer.adaptation)?.answer.adaptation;
-    return <FinalReveal animal={finalAnimal} adaptation={adaptation} title={storyData.title} story={storyData.story} moral={storyData.moral} />;
+    const customTitle = `${userName}, ${t(`traits.${finalAnimal.name}`)}`;
+    return <FinalReveal
+      animal={finalAnimal}
+      title={customTitle}
+      story={storyData.description}
+    />;
   }
 
   if (!currentQuestion) return null;
@@ -352,7 +329,7 @@ export default function QuizFlow({ userName }) {
 
           {!isTransitioning && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
-              {currentQuestion.options.slice(0, 4).map((option, idx) => (
+              {currentQuestion.options.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={(e) => {
@@ -366,20 +343,6 @@ export default function QuizFlow({ userName }) {
                   {option.text}
                 </button>
               ))}
-
-              {currentQuestion.options.length === 5 && (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.currentTarget.blur();
-                    document.activeElement?.blur();
-                    handleAnswerClick(currentQuestion.options[4])
-                  }}
-                  className="focus:outline-none col-span-2 bg-primary text-white text-center px-6 py-5 rounded-[30px] w-80 text-[22px] font-avenir hover:bg-secondary transition"
-                >
-                  {currentQuestion.options[4].text}
-                </button>
-              )}
             </div>
           )}
         </div>

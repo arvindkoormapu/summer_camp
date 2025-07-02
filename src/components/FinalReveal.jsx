@@ -12,7 +12,7 @@ const VITE_EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const VITE_EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const VITE_EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-export default function FinalReveal({ animal, adaptation, story, title, moral }) {
+export default function FinalReveal({ animal, story, title }) {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
   const printRef = useRef(null);
@@ -64,17 +64,13 @@ export default function FinalReveal({ animal, adaptation, story, title, moral })
           {
             user_email: email,
             animal_name: t(`animals.${animal.name}`),
-            traits: animal.traits.map(trait => t(`traits.${trait}`)).join(', '),
-            adaptation: t(`adaptation.${adaptation}`),
+            traits: t(`traits.${animal.name}`),
             image_url: `${window.location.origin}${animal.image}`,
             logo_right_url: `${window.location.origin}/logo-right.png`,
             logo_left_url: `${window.location.origin}/logo.png`,
             story_title: title,
             story: story,
-            moral: moral,
-            spirit_label: t('Spirit Animal'),
-            adaptation_label: t('Adaptation'),
-            moral_label: t('Moral'),
+            spirit_label: t('Character Match'),
             direction: i18n.language === 'ar' ? 'rtl' : 'ltr',
             alignment: i18n.language === 'ar' ? 'right' : 'left',
           },
@@ -144,20 +140,15 @@ export default function FinalReveal({ animal, adaptation, story, title, moral })
 
           <div className={`w-full px-2 md:px-4 ${isRTL ? 'text-right' : 'text-left'}`} dir={isRTL ? 'rtl' : 'ltr'}>
             <p className={`font-avenir text-[18px] font-bold text-secondary ${printFontSize}`}>
-              {t("Spirit Animal")}: <span className="italic font-normal">{t(`animals.${animal.name}`)}</span> {' '}
-              ({animal.traits.map((trait, index) => (
+              {<span className="font-bold">{t("Character Match")}:</span>} <span className="italic font-normal">{t(`animals.${animal.name}`)}</span> {' '}
+              {/* ({animal.traits.map((trait, index) => (
                 <span key={trait}>
                   {t(`traits.${trait}`)}
                   {index < animal.traits.length - 1 ? ', ' : ''}
                 </span>
-              ))})
+              ))}) */}
             </p>
 
-            <p className={`font-avenir text-[18px] font-bold mt-2 text-secondary ${printFontSize}`}>
-              {t("Adaptation")}: <span className="italic font-normal">{t(`adaptation.${adaptation}`)}</span>
-            </p>
-
-            <p className={`mt-2 font-avenir text-[18px] text-secondary ${printFontSize}`}>{t("Your story")}:</p>
             <h2 className={`font-flapstick italic text-[30px] text-primary mb-6 text-center ${printFontSizeTitle}`}>
               {title}
             </h2>
@@ -166,17 +157,14 @@ export default function FinalReveal({ animal, adaptation, story, title, moral })
               {story}
             </p>
 
-            <p className={`font-avenir font-extrabold italic text-[18px] text-secondary ${printFontSize}`}>
-              {t("Moral")}: {moral}
-            </p>
           </div>
 
           <div className="sticky bottom-[-50px] left-0 right-0 bg-white/100 w-full mt-10 pt-6 pb-4 px-4 flex flex-col md:flex-row justify-center gap-6 print:hidden">
-            <button onClick={handlePrint} className="font-avenir bg-primary hover:bg-secondary transition text-white font-bold text-[18px] px-10 py-4 rounded-full w-full md:w-[350px]">
+            {/* <button onClick={handlePrint} className="font-avenir bg-primary hover:bg-secondary transition text-white font-bold text-[18px] px-10 py-4 rounded-full w-full md:w-[350px]">
               {t("Print my story")}
-            </button>
+            </button> */}
             <button onClick={() => { setShowEmailPopup(true); setEmailSent(false); }} className="font-avenir bg-primary hover:bg-secondary transition text-white font-bold text-[18px] px-10 py-4 rounded-full w-full md:w-[350px]">
-              {t("Receive by email")}
+              {t("Send by email")}
             </button>
           </div>
 

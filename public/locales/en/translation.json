@@ -1,59 +1,52 @@
 {
-    "title": "Discover Your Tale through AI",
-    "subtitle": "Step into the world of ancient wisdom and find your spirit animal from Kalila wa Dimna!",
+    "title": "WHO AM I IN THE FABLE?",
+    "subtitle": "Step into the world of timeless tales and discover which character you are in the fable.",
     "enterName": "Enter Your Name",
-    "startQuiz": "Start Quiz",
+    "startQuiz": "Start",
     "quiz": {
-        "loader1": "Now we have a guess about your spirit animal. Let’s discover your adventure!",
-        "loader2": "Let’s reveal your spirit animal and go on an AI-generated adventure made just for you!",
+        "loader1": "Let’s reveal your character match!",
         "q0": {
-            "text": "Who would you like your character to be in the story?",
-            "a1": "Boy",
-            "a2": "Girl"
+            "text": "What would you do if you saw two friends arguing?",
+            "a1": "Help them talk and be friends again",
+            "a2": "Walk away and let them figure it out",
+            "a3": "Say something funny to make them smile",
+            "a4": "Use kind words to help them feel better"
         },
         "q1": {
-            "text": "What would you do if you saw two friends arguing?",
-            "a1": "Try to help them talk it out",
-            "a2": "Stay out of it, it's not your problem",
-            "a3": "Jump in and make a joke to lighten the mood",
-            "a4": "Calm them both down with a soft word"
-        },
-        "q2": {
             "text": "Which superpower would you like to have?",
             "a1": "Incredible strength",
             "a2": "Super speed",
             "a3": "The power to carry big things and protect",
             "a4": "The ability to live long and stay calm"
         },
-        "q3": {
-            "text": "How do you make decisions?",
-            "a1": "I think before I act",
-            "a2": "I go with my gut",
-            "a3": "I ask my friends",
+        "q2": {
+            "text": "How do you decide what to do?",
+            "a1": "I stop and think really hard first",
+            "a2": "I trust my feelings and go for it",
+            "a3": "I ask my friends what they think",
             "a4": "I follow the rules"
         },
-        "q4": {
-            "text": "What kind of adventure would you love to go on?",
-            "a1": "Exploring a hidden forest",
-            "a2": "Solving a mystery in a castle",
-            "a3": "Helping a friend across a river",
-            "a4": "Climbing a tall mountain",
-            "a5": "Visiting a place full of magic and wonder"
+        "q3": {
+            "text": "What kind of friend are you?",
+            "a1": "The one who always stays by your side",
+            "a2": "The one who makes everyone laugh",
+            "a3": "The one who’s there when things get tough",
+            "a4": "The one who’s clever and thinks things through"
         },
-        "q5": {
-            "text": "What kind of story world sounds the most fun to you?",
-            "a1": "A jungle full of friendly animals and wise teachers who help you learn important lessons",
-            "a2": "A shiny golden palace where big things happen and every story has a strong message",
-            "a3": "A peaceful garden with pretty birds and soft stories that make you think",
-            "a4": "A silly forest where animals talk in rhymes and every tale has a funny twist at the end"
+        "q4": {
+            "text": "Uh-oh! Something surprising just happened — what’s your move?",
+            "a1": "I take a deep breath and think carefully",
+            "a2": "I jump into action right away",
+            "a3": "I stay quiet and wait for the right time",
+            "a4": "I ask someone for advice or help"
         }
     },
-    "Spirit Animal": "Spirit Animal",
+    "Character Match": "Character Match",
     "Adaptation": "Adaptation",
     "Your story": "Your story",
     "Moral": "Moral",
     "Print my story": "Print my story",
-    "Receive by email": "Receive by email",
+    "Send by email": "Send by email",
     "adaptation": {
         "indian": "Indian",
         "arabic": "Arabic",
@@ -62,39 +55,25 @@
     },
     "animals": {
         "elephant": "Elephant",
-        "jackal": "Jackal",
         "monkey": "Monkey",
         "duck": "Duck",
         "lion": "Lion",
         "hare": "Hare",
         "ox": "Ox",
-        "turtle": "Turtle"
+        "turtle": "Turtle",
+        "dove": "Dove",
+        "fox": "Fox"
     },
     "traits": {
-        "brave": "Brave",
-        "loyal": "Loyal",
-        "protector": "Protector",
-        "clever": "Clever",
-        "strategic": "Strategic",
-        "fast_thinker": "Fast-thinker",
-        "wise": "Wise",
-        "calm": "Calm",
-        "strong_hearted": "Strong-hearted",
-        "kind": "Kind",
-        "peace_maker": "Peace-maker",
-        "gentle": "Gentle",
-        "patient": "Patient",
-        "reflective": "Reflective",
-        "peaceful": "Peaceful",
-        "fast": "Fast",
-        "fun": "Fun",
-        "impulsive": "Impulsive",
-        "steady": "Steady",
-        "hardworking": "Hardworking",
-        "dependable": "Dependable",
-        "playful": "Playful",
-        "creative": "Creative",
-        "witty": "Witty"
+        "lion": "you are as brave as a lion!",
+        "elephant": "you are as wise as an elephant!",
+        "duck": "you are as kind as a duck!",
+        "turtle": "you are as calm as a turtle!",
+        "hare": "you are as fast as a hare!",
+        "ox": "you are as dependable as an ox!",
+        "monkey": "you are as playful as a monkey!",
+        "dove": "you are as loyal as a dove!",
+        "fox": "you are as clever as a fox!"
     },
     "Successfully sent your story!": "Successfully sent your story!",
     "Send story to your email": "Send story to your email",
