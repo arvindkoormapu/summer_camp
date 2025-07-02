@@ -1,0 +1,77 @@
+[
+  {
+    "type": "question",
+    "id": 1,
+    "text": "What would you do if you saw two friends arguing?",
+    "options": [
+      { "text": "Try to help them talk it out", "animal": "elephant", "image": "animals/elephant.png" },
+      { "text": "Stay out of it, it's not your problem", "animal": "jackal", "image": "animals/jackal2.png" },
+      { "text": "Jump in and make a joke to lighten the mood", "animal": "monkey", "image": "animals/monkey.png" },
+      { "text": "Calm them both down with a soft word", "animal": "duck", "image": "animals/duck2.png" }
+    ]
+  },
+  {
+    "type": "question",
+    "id": 2,
+    "text": "Which superpower would you like to have?",
+    "options": [
+      { "text": "Incredible strength", "animal": "lion", "image": "animals/lion.png" },
+      { "text": "Super speed", "animal": "rabbit", "image": "animals/rabbit.png" },
+      { "text": "The power to carry big things and protect", "animal": "ox", "image": "animals/ox.png" },
+      { "text": "The ability to live long and stay calm", "animal": "turtle", "image": "animals/turtle.png" }
+    ]
+  },
+  {
+    "type": "question",
+    "id": 3,
+    "text": "How do you make decisions?",
+    "options": [
+      { "text": "I think before I act", "animals": ["elephant", "turtle"], "image": "animals/elephant.png" },
+      { "text": "I go with my gut", "animals": ["jackal", "rabbit"], "image": "animals/jackal1.png" },
+      { "text": "I ask my friends", "animals": ["duck", "monkey"], "image": "animals/duck1.png" },
+      { "text": "I follow the rules", "animals": ["ox", "lion"], "image": "animals/ox.png" }
+    ]
+  },
+  {
+    "type": "loader",
+    "id": "loader1",
+    "text": "Now we have a guess about your spirit animal. Let’s discover your adventure!",
+    "duration": 5000
+  },
+  {
+    "type": "question",
+    "id": 4,
+    "text": "What kind of adventure would you love to go on?",
+    "options": [
+      { "text": "Exploring a hidden forest", "theme": "The story involves discovery, nature, or finding a secret path" },
+      { "text": "Solving a mystery in a castle", "theme": "The story involves a problem-solving quest, riddles, or puzzles" },
+      { "text": "Helping a friend across a river", "theme": "The story involves teamwork, empathy, or facing fear together" },
+      { "text": "Climbing a tall mountain", "theme": " The story involves perseverance, self-belief, or overcoming a personal challenge" },
+      { "text": "Visiting a place full of magic and wonder", "theme": "The story is whimsical, imaginative, and surreal" }
+    ]
+  },
+  {
+    "type": "question",
+    "id": 5,
+    "text": "What kind of story world sounds the most fun to you?",
+    "options": [
+      {
+        "text": "A jungle full of friendly animals and wise teachers who help you learn important lessons",
+        "adaptation": "indian"
+      },
+      {
+        "text": "A shiny golden palace where big things happen and every story has a strong message",
+        "adaptation": "arabic"
+      },
+      {
+        "text": "A peaceful garden with pretty birds and soft stories that make you think",
+        "adaptation": "persian"
+      },
+      {
+        "text": "A silly forest where animals talk in rhymes and every tale has a funny twist at the end",
+        "adaptation": "western"
+      }
+    ]
+  }
+  
+]

@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts */
+@font-face {
+  font-family: 'Flapstick';
+  src: url('/fonts/FlapstickDEMO.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/Avenir-Book.ttf') format('truetype');
+}

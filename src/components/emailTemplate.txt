@@ -1,0 +1,26 @@
+<div style="font-family: 'Segoe UI', sans-serif; padding: 30px; background-color: #f5f5f5;">
+  <div style="background: white; padding: 40px; border-radius: 20px; max-width: 700px; margin: auto; position: relative; direction: {{direction}}; text-align: {{alignment}};">
+
+    <!-- Animal image center -->
+    <div style="text-align: center; margin-top: 40px;">
+      <img src="{{image_url}}" alt="{{animal_name}}" width="200" />
+    </div>
+
+    <!-- Spirit Animal Info -->
+    <p style="font-size: 20px; margin-top: 24px;">{{spirit_label}}: <em>{{animal_name}}</em> ({{traits}})</p>
+    <p style="font-size: 20px;">{{adaptation_label}}: <em>{{adaptation}}</em></p>
+
+    <!-- Story Title -->
+    <h2 style="font-size: 26px; margin: 30px 0 20px; color: #db5f45;">{{story_title}}</h2>
+
+    <!-- Story Body -->
+    <p style="font-size: 18px; line-height: 1.7; white-space: pre-line;">{{story}}</p>
+
+    <!-- Moral -->
+    <p style="font-size: 18px; font-weight: bold; font-style: italic; margin-top: 30px;">{{moral_label}}: {{moral}}</p>
+
+    <!-- Logo at bottom left -->
+    <img src="{{logo_url}}" alt="logo" width="100" style="position: absolute; bottom: 20px; inset-inline-start: 20px;" />
+
+  </div>
+</div>

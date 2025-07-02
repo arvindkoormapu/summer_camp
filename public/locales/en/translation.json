@@ -1,0 +1,105 @@
+{
+    "title": "Discover Your Tale through AI",
+    "subtitle": "Step into the world of ancient wisdom and find your spirit animal from Kalila wa Dimna!",
+    "enterName": "Enter Your Name",
+    "startQuiz": "Start Quiz",
+    "quiz": {
+        "loader1": "Now we have a guess about your spirit animal. Let’s discover your adventure!",
+        "loader2": "Let’s reveal your spirit animal and go on an AI-generated adventure made just for you!",
+        "q0": {
+            "text": "Who would you like your character to be in the story?",
+            "a1": "Boy",
+            "a2": "Girl"
+        },
+        "q1": {
+            "text": "What would you do if you saw two friends arguing?",
+            "a1": "Try to help them talk it out",
+            "a2": "Stay out of it, it's not your problem",
+            "a3": "Jump in and make a joke to lighten the mood",
+            "a4": "Calm them both down with a soft word"
+        },
+        "q2": {
+            "text": "Which superpower would you like to have?",
+            "a1": "Incredible strength",
+            "a2": "Super speed",
+            "a3": "The power to carry big things and protect",
+            "a4": "The ability to live long and stay calm"
+        },
+        "q3": {
+            "text": "How do you make decisions?",
+            "a1": "I think before I act",
+            "a2": "I go with my gut",
+            "a3": "I ask my friends",
+            "a4": "I follow the rules"
+        },
+        "q4": {
+            "text": "What kind of adventure would you love to go on?",
+            "a1": "Exploring a hidden forest",
+            "a2": "Solving a mystery in a castle",
+            "a3": "Helping a friend across a river",
+            "a4": "Climbing a tall mountain",
+            "a5": "Visiting a place full of magic and wonder"
+        },
+        "q5": {
+            "text": "What kind of story world sounds the most fun to you?",
+            "a1": "A jungle full of friendly animals and wise teachers who help you learn important lessons",
+            "a2": "A shiny golden palace where big things happen and every story has a strong message",
+            "a3": "A peaceful garden with pretty birds and soft stories that make you think",
+            "a4": "A silly forest where animals talk in rhymes and every tale has a funny twist at the end"
+        }
+    },
+    "Spirit Animal": "Spirit Animal",
+    "Adaptation": "Adaptation",
+    "Your story": "Your story",
+    "Moral": "Moral",
+    "Print my story": "Print my story",
+    "Receive by email": "Receive by email",
+    "adaptation": {
+        "indian": "Indian",
+        "arabic": "Arabic",
+        "persian": "Persian",
+        "western": "Western"
+    },
+    "animals": {
+        "elephant": "Elephant",
+        "jackal": "Jackal",
+        "monkey": "Monkey",
+        "duck": "Duck",
+        "lion": "Lion",
+        "hare": "Hare",
+        "ox": "Ox",
+        "turtle": "Turtle"
+    },
+    "traits": {
+        "brave": "Brave",
+        "loyal": "Loyal",
+        "protector": "Protector",
+        "clever": "Clever",
+        "strategic": "Strategic",
+        "fast_thinker": "Fast-thinker",
+        "wise": "Wise",
+        "calm": "Calm",
+        "strong_hearted": "Strong-hearted",
+        "kind": "Kind",
+        "peace_maker": "Peace-maker",
+        "gentle": "Gentle",
+        "patient": "Patient",
+        "reflective": "Reflective",
+        "peaceful": "Peaceful",
+        "fast": "Fast",
+        "fun": "Fun",
+        "impulsive": "Impulsive",
+        "steady": "Steady",
+        "hardworking": "Hardworking",
+        "dependable": "Dependable",
+        "playful": "Playful",
+        "creative": "Creative",
+        "witty": "Witty"
+    },
+    "Successfully sent your story!": "Successfully sent your story!",
+    "Send story to your email": "Send story to your email",
+    "Enter your email": "Enter your email",
+    "Please enter your name to continue": "Please enter your name to continue",
+    "Start Over": "Start Over",
+    "print message": "You may collect your printed story from the reception desk."
+}
