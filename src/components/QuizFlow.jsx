@@ -230,16 +230,16 @@ export default function QuizFlow({ userName }) {
 
       console.log(result);
 
-      // generateStory({ t, name: userName, character: 'child', animal: result, language }).then((storyResponse) => {
-      //   if (storyResponse) {
-      //     setFinalAnimal(result);
-      //     setStoryData(storyResponse);
-      //     setStoryReady(true);
-      //   } else {
-      //     console.error('Failed to generate story');
-      //   }
-      //   setIsGenerating(false);
-      // });
+      generateStory({ t, name: userName, character: 'child', animal: result, language }).then((storyResponse) => {
+        if (storyResponse) {
+          setFinalAnimal(result);
+          setStoryData(storyResponse);
+          setStoryReady(true);
+        } else {
+          console.error('Failed to generate story');
+        }
+        setIsGenerating(false);
+      });
     }
   }, [currentQuestion]);
 
